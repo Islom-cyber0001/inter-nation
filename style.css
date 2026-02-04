@@ -1,124 +1,32 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#fff;color:#111}
+.wrap{max-width:1200px;margin:auto}
 
-body {
-  background: #fff;
-  color: #111;
-}
+.top{border-bottom:1px solid #eee}
+.top-inner{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+.brand{display:flex;gap:10px;align-items:center}
+.brand img{height:34px}
+.brand span{font-size:12px;color:#666}
+nav a{margin:0 10px;font-size:14px;cursor:default}
+.icons{display:flex;gap:10px}
+.lang{padding:5px 10px;border:1px solid #ccc;border-radius:4px;font-size:12px}
+.user{width:32px;height:32px;background:#000;border-radius:50%}
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-}
+.doc{padding:90px 0;text-align:center}
+.doc-head{display:flex;justify-content:space-between;margin-bottom:60px}
+.doc-logo{height:42px}
+.doc-info{text-align:right;font-size:14px}
+h1{font-size:28px;margin-bottom:25px}
+.doc p{margin:7px 0;font-size:16px}
 
-/* HEADER */
-.header {
-  border-bottom: 1px solid #eee;
-}
+.doc-bottom{margin-top:90px;display:flex;justify-content:space-between;align-items:center}
+.stamp{width:120px}
+.sign{width:140px;margin:10px 0}
+.qr{width:90px}
 
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 0;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo img {
-  height: 32px;
-}
-
-.nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #000;
-  font-size: 14px;
-}
-
-/* DOCUMENT */
-.doc {
-  padding: 80px 0;
-  text-align: center;
-}
-
-.doc-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 60px;
-}
-
-.doc-logo {
-  height: 40px;
-}
-
-.doc-contact {
-  text-align: right;
-  font-size: 14px;
-}
-
-h1 {
-  font-size: 28px;
-  margin-bottom: 30px;
-}
-
-.doc p {
-  margin: 8px 0;
-  font-size: 16px;
-}
-
-/* FOOTER PART OF DOC */
-.doc-footer {
-  margin-top: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.stamp {
-  width: 120px;
-}
-
-.signature {
-  width: 140px;
-  margin-top: 10px;
-}
-
-.qr img {
-  width: 100px;
-}
-
-/* SITE FOOTER */
-.footer {
-  padding: 40px 0;
-  border-top: 1px solid #eee;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-logo {
-  height: 28px;
-}
-
-.apps {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.apps img {
-  height: 40px;
-}
+.footer{border-top:1px solid #eee;padding:40px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.foot-logo{height:30px}
+.socials span{display:inline-block;width:32px;height:32px;background:#eee;border-radius:50%;margin-right:8px}
+.apps{display:flex;gap:15px;align-items:center}
+.apps img{height:42px}
