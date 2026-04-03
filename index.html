@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>For You 🌸</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,11 +11,16 @@
 <div class="overlay">
   <h1 id="title">This is for you 💜</h1>
   <p id="counter">Loading...</p>
+  <button id="playBtn">Play Video & Music</button>
 </div>
 
-<video id="bg-video" autoplay muted loop playsinline>
+<video id="bg-video" loop>
   <source src="assets/video/siren.mp4" type="video/mp4">
 </video>
+
+<audio id="bg-music" loop>
+  <source src="assets/audio/siren.mp3" type="audio/mp3">
+</audio>
 
 <script src="script.js"></script>
 </body>
