@@ -2,19 +2,17 @@ const video = document.getElementById("bg-video");
 const music = document.getElementById("bg-music");
 const playBtn = document.getElementById("playBtn");
 
-// HAR DOIM video ovozsiz bo‘lsin
+// video doim ovozsiz
 video.muted = true;
 
+// loader tugagach content chiqadi
+setTimeout(() => {
+  document.getElementById("content").classList.remove("hidden");
+}, 2000);
+
+// play tugma
 playBtn.addEventListener("click", () => {
-  // video ketadi (ovozsiz)
   video.play();
-
-  // faqat bitta audio ishlaydi
-  if (music) {
-    music.currentTime = 0;
-    music.play();
-  }
-
-  // tugmani yashiramiz
+  music.play();
   playBtn.style.display = "none";
 });
