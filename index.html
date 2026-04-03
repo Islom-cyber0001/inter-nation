@@ -5,20 +5,131 @@
 <title>For You 🌸</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  background: black;
+}
+
+/* VIDEO */
+#bg-video {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+/* LOADER */
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  z-index: 100;
+  animation: fadeOut 1.5s ease forwards;
+  animation-delay: 2s;
+}
+
+/* CONTENT */
+.overlay {
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  z-index: 10;
+}
+
+/* TITLE */
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 70px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 2s ease forwards;
+  animation-delay: 2.5s;
+}
+
+/* BUTTON */
+#playBtn {
+  margin-top: 30px;
+  padding: 15px 40px;
+  font-size: 24px;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.9);
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: zoomIn 1.5s ease forwards;
+  animation-delay: 3s;
+}
+
+/* TELEGRAM BUTTON */
+.feedback {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 20;
+}
+
+.feedback a {
+  background: rgba(255,255,255,0.9);
+  padding: 12px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+</style>
 
 </head>
 <body>
 
-<!-- LOADING SCREEN -->
-<div id="loader">
-  <span>Loading...</span>
+<!-- LOADING -->
+<div id="loader">Loading...</div>
+
+<!-- CONTENT -->
+<div class="overlay">
+  <h1>This is for you 💜</h1>
+  <button id="playBtn">Play 💜</button>
 </div>
 
-<!-- MAIN CONTENT -->
-<div class="overlay hidden" id="content">
-  <h1 id="title">This is for you 💜</h1>
-  <button id="playBtn">Play 💜</button>
+<!-- TELEGRAM -->
+<div class="feedback">
+  <a href="https://t.me/softtrace0" target="_blank">
+    💌 Leave a message
+  </a>
 </div>
 
 <!-- VIDEO -->
@@ -31,7 +142,21 @@
   <source src="assets/audio/siren.mp3" type="audio/mp3">
 </audio>
 
-<script src="script.js"></script>
+<script>
+const video = document.getElementById("bg-video");
+const music = document.getElementById("bg-music");
+const playBtn = document.getElementById("playBtn");
+
+// video har doim ovozsiz
+video.muted = true;
+
+// play
+playBtn.addEventListener("click", () => {
+  video.play();
+  music.play();
+  playBtn.style.display = "none";
+});
+</script>
 
 </body>
 </html>
