@@ -86,3 +86,18 @@ h1 {
     visibility: hidden;
   }
 }
+.feedback {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 20;
+}
+
+.feedback a {
+  background: rgba(255,255,255,0.9);
+  padding: 12px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
