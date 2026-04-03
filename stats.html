@@ -1,48 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Visitor Stats 🌸</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-body { font-family: sans-serif; padding: 30px; }
-canvas { max-width: 600px; margin: auto; display: block; }
-</style>
-</head>
-<body>
-<h1>Visitor Stats</h1>
-<p>Refresh sahifa bilan counter yangilanadi</p>
-<canvas id="visitorChart"></canvas>
+window.addEventListener("load", () => {
+  const counterEl = document.getElementById("counter");
+  const namespace = "siren-gift-global";
 
-<script>
-const namespace = "siren-gift-global";
-const ctx = document.getElementById('visitorChart').getContext('2d');
-
-let chart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Total Visits'],
-        datasets: [{
-            label: 'People visited',
-            data: [0],
-            backgroundColor: ['rgba(255, 99, 132, 0.6)']
-        }]
-    },
-    options: { responsive: true }
+  fetch(`https://api.countapi.xyz/hit/${namespace}/visits`)
+    .then(res => res.json())
+    .then(data => {
+      if (counterEl) {
+        counterEl.innerText = `🌸 ${data.value} people have seen this`;
+      }
+    })
+    .catch(err => {
+      if (counterEl) {
+        counterEl.innerText = "Error loading counter";
+      }
+      console.error(err);
+    });
 });
-
-function updateCounter() {
-    fetch(`https://api.countapi.xyz/get/${namespace}/visits`)
-        .then(res => res.json())
-        .then(data => {
-            chart.data.datasets[0].data[0] = data.value;
-            chart.update();
-        });
-}
-
-// Yangilash har 5 soniyada
-updateCounter();
-setInterval(updateCounter, 5000);
-</script>
-</body>
-</html>
