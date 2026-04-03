@@ -1,29 +1,33 @@
-// Counter
-const namespace = "siren-gift-global";
+// Elementni olish
+const counterEl = document.getElementById("counter");
 
-fetch(`https://api.countapi.xyz/hit/${namespace}/visits`)
+// Cloudflare Worker URL
+const WORKER_URL = "https://inter-nation.islomodilov573.workers.dev";
+
+// Fetch orqali unique visitors olish
+fetch(WORKER_URL)
   .then(res => res.json())
   .then(data => {
-    document.getElementById("counter").innerText =
-      `🌸 ${data.value} people have seen this`;
+    // Sahifada counterni ko'rsatish
+    if(counterEl) {
+      counterEl.innerText = `🌸 ${data.value} unique visitors`;
+    }
+  })
+  .catch(err => {
+    if(counterEl) counterEl.innerText = "Error loading counter";
+    console.error("Counter fetch error:", err);
   });
 
-// Name personalization
-const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
-if (name) {
-  document.getElementById("title").innerText =
-    `This is for you, ${name} 💜`;
-}
-
-// Play button
+// --- Video va Music play tugmasi (agar ishlatmoqchi bo'lsang) ---
 const video = document.getElementById("bg-video");
 const music = document.getElementById("bg-music");
 const playBtn = document.getElementById("playBtn");
 
-playBtn.addEventListener("click", () => {
-  video.muted = false; // video ovozini yoqish
-  video.play();
-  music.play();
-  playBtn.style.display = "none"; // tugmani yashirish
-});
+if(playBtn) {
+  playBtn.addEventListener("click", () => {
+    video.muted = false; // video ovozini yoqish
+    video.play();
+    if(music) music.play();
+    playBtn.style.display = "none"; // tugmani yashirish
+  });
+}
